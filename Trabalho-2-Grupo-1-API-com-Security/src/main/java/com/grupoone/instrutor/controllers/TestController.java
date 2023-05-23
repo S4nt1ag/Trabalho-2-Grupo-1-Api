@@ -9,21 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 public class TestController {
+	
 	@GetMapping("/all")
 	public String allAccess() {
 		return "Public Content.";
 	}
 
 	@GetMapping("/user")
-	// @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')") //e possivel definir diretamente no controller o nivel de acesso por role
+	//@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')") //e possivel definir diretamente no controller o nivel de acesso por role
 	public String userAccess() {
 		return "User Content.";
 	}
 
-	@GetMapping("/mod")
+	@GetMapping("/instrutor")
 	//@PreAuthorize("hasRole('MODERATOR')")
-	public String moderatorAccess() {
-		return "Moderator Board.";
+	public String instrutorAccess() {
+		return "Instrutor Board.";
 	}
 
 	@GetMapping("/admin")
