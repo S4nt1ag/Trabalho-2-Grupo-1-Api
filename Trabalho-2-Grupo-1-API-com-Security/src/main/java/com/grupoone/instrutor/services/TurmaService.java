@@ -13,6 +13,10 @@ public class TurmaService {
 
 	@Autowired
 	TurmaRepository turmaRepository;
+	
+	@Autowired
+	EmailService emailService;
+
 
 	public List<Turma> getAllTurmas() {
 		return turmaRepository.findAll();
@@ -23,7 +27,10 @@ public class TurmaService {
 	}
 
 	public Turma saveTurma(Turma turma) {
-		return turmaRepository.save(turma);
+		Turma novaTurma=turmaRepository.save(turma);
+		emailService.enviarEmail("email@outlook.com", "Turma cadastrada", novaTurma.toString());
+		
+		return novaTurma;
 	}
 
 	public Turma updateTurma(Turma turma, Integer id) {
