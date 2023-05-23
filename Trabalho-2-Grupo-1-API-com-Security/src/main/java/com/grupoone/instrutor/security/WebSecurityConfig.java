@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -41,9 +42,11 @@ public class WebSecurityConfig {
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/roles/**", "/test/all", "/turmas**", "/telefones**", "/instrutores**").permitAll() //define as rotas publicas/abertas
-                    .requestMatchers("/swagger-ui/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
-                    .requestMatchers("/test/user/**").hasAnyRole("USER", "ADMIN", "INSTRUTOR") //autoriza o acesso a rotas por perfis
+                    .requestMatchers("/auth/**", "/roles/**", "/test/all").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers(HttpMethod.GET, "/instrutores/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pdoe ver instrutores
+                    .requestMatchers(HttpMethod.GET, "/telefones/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pode ver telefones
+                    .requestMatchers(HttpMethod.GET, "/turmas/**").hasAnyRole("USER", "INSTRUTOR", "ADMIN") //user só pode ver turmas
+                    .requestMatchers("/swagger-ui/**","/telefones/**", "/instrutores/**", "/turmas/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
                     .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
 		;		
 		
