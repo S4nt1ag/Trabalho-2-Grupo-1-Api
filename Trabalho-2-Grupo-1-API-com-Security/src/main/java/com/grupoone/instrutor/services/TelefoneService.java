@@ -13,6 +13,9 @@ public class TelefoneService {
 
 	@Autowired
 	TelefoneRepository telefoneRepository;
+	
+	@Autowired
+	EmailService emailService;
 
 	public List<Telefone> getAllTelefones() {
 		return telefoneRepository.findAll();
@@ -26,13 +29,15 @@ public class TelefoneService {
 		Boolean instrutorLivre = true;
 		List<Telefone> listaTelefones = this.getAllTelefones();
 		
-		for(Telefone t : listaTelefones) {
-			if(t.getInstrutor().getIdInstrutor() == telefone.getInstrutor().getIdInstrutor()) {
+		for(Telefone tel : listaTelefones) {
+			if(tel.getInstrutor().getIdInstrutor() == telefone.getInstrutor().getIdInstrutor()) {
 				instrutorLivre = false;
 			}	
 		}
 		if(instrutorLivre) {
-			return telefoneRepository.save(telefone);
+			Telefone novoTelefone = telefoneRepository.save(telefone);
+			emailService.enviarEmail("email@outlook.com", "Telefone cadastrado", novoTelefone.toString());
+			return novoTelefone;
 		}
 		else {
 			return null;

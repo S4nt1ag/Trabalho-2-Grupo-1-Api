@@ -95,5 +95,9 @@ public class Instrutor {
 		Instrutor other = (Instrutor) obj;
 		return Objects.equals(rg, other.rg);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Instrutor [idInstrutor=" + idInstrutor + ", rg=" + rg + ", nome=" + nome + "]";
+	}	
 }

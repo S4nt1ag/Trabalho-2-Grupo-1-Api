@@ -71,4 +71,11 @@ public class Telefone {
 		Telefone other = (Telefone) obj;
 		return Objects.equals(numero, other.numero);
 	}
+
+	@Override
+	public String toString() {
+		return "Telefone = " + numero + " cadastradoo para instrutor= " + instrutor + "]";
+	}
+	
+	
 }

@@ -11,9 +11,11 @@ import com.grupoone.instrutor.repositories.InstrutorRepository;
 @Service
 public class InstrutorService {
 
-
 	@Autowired
 	InstrutorRepository instrutorRepository;
+	
+	@Autowired
+	EmailService emailService;
 
 	public List<Instrutor> getAllInstrutores() {
 		return instrutorRepository.findAll();
@@ -24,8 +26,10 @@ public class InstrutorService {
 	}
 
 	public Instrutor saveInstrutor(Instrutor instrutor) {
-		return instrutorRepository.save(instrutor);
-	}
+		Instrutor novoInstrutor = instrutorRepository.save(instrutor);
+		emailService.enviarEmail("email@outlook.com", "Instrutor cadastrado", novoInstrutor.toString());
+		return novoInstrutor;
+	}	
 
 	public Instrutor updateInstrutor(Instrutor instrutor, Integer id) {
 		return instrutorRepository.save(instrutor);
