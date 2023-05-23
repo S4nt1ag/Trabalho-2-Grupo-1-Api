@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/trabalho1/instrutores/2",
+							"raw": "http://localhost:8080/trabalho1/instrutores/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -44,7 +44,7 @@
 							"path": [
 								"trabalho1",
 								"instrutores",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -57,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"rg\" : 225, \r\n    \"nome\" : \"Adriana Neves\"\r\n}",
+							"raw": "{\r\n    \"rg\" : 96633, \r\n    \"nome\" : \"Pessoa 2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -160,7 +160,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/trabalho1/telefones/2",
+							"raw": "http://localhost:8080/trabalho1/telefones/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -169,7 +169,7 @@
 							"path": [
 								"trabalho1",
 								"telefones",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -182,7 +182,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"numero\": 9333,\r\n    \"idInstrutor\" : {\r\n        \"idInstrutor\": 3\r\n    }\r\n}",
+							"raw": "{\r\n    \"numero\": 97997,\r\n    \"instrutor\" : {\r\n        \"idInstrutor\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -211,7 +211,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n  \"idTelefone\": 3,\r\n  \"numero\": 8666,\r\n  \"idInstrutor\": {\r\n    \"idInstrutor\": 2,\r\n    \"rg\": 785,\r\n    \"nome\": \"Alexandre Paixão\",\r\n    \"listaTurma\": [\r\n      {\r\n        \"idTurma\": 1,\r\n        \"nomeDisciplina\": \"PostgreSQL\",\r\n        \"diaSemana\": \"Quinta-feira\",\r\n        \"idInstrutor\": 2\r\n      }\r\n    ],\r\n    \"telefone\": 3\r\n  }\r\n}",
+							"raw": "{\r\n    \"idTelefone\": 13,\r\n    \"numero\": 97765,\r\n    \"instrutor\": {\r\n        \"idInstrutor\": 1,\r\n        \"rg\": 95355,\r\n        \"nome\": \"Alexandre Paixão\",\r\n        \"listaTurma\": [\r\n            {\r\n                \"idTurma\": 5,\r\n                \"nomeDisciplina\": \"API Restful\",\r\n                \"diaSemana\": \"Quinta-feira\",\r\n                \"instrutor\": 1\r\n            }\r\n        ],\r\n        \"telefone\": 13\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -239,7 +239,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/trabalho1/telefones/13",
+							"raw": "http://localhost:8080/trabalho1/telefones/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -248,7 +248,7 @@
 							"path": [
 								"trabalho1",
 								"telefones",
-								"13"
+								"9"
 							]
 						}
 					},
@@ -307,7 +307,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"nomeDisciplina\": \"API Restful\",\r\n    \"diaSemana\": \"Quinta-feira\",\r\n    \"idInstrutor\": {\r\n        \"idInstrutor\": 1\r\n    }\r\n}",
+							"raw": "{\r\n\t\"nomeDisciplina\": \"API Restful\",\r\n    \"diaSemana\": \"Quinta-feira\",\r\n    \"instrutor\": {\r\n        \"idInstrutor\": 1\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -336,7 +336,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idTurma\": 2,\r\n    \"nomeDisciplina\": \"API\",\r\n    \"diaSemana\": \"Quarta-Feira\",\r\n    \"idInstrutor\": {\r\n        \"idInstrutor\": 1,\r\n        \"rg\": 985,\r\n        \"nome\": \"Alexandre Pacheco\"\r\n    }\r\n}",
+							"raw": "{\r\n    \"idTurma\": 2,\r\n    \"nomeDisciplina\": \"API\",\r\n    \"diaSemana\": \"Quarta-Feira\",\r\n    \"instrutor\": {\r\n        \"idInstrutor\": 1,\r\n        \"rg\": 985,\r\n        \"nome\": \"Alexandre Pacheco\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -364,7 +364,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/trabalho1/turmas/1000",
+							"raw": "http://localhost:8080/trabalho1/turmas/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -373,7 +373,7 @@
 							"path": [
 								"trabalho1",
 								"turmas",
-								"1000"
+								"2"
 							]
 						}
 					},
@@ -414,13 +414,13 @@
 					"response": []
 				},
 				{
-					"name": "Role_Moderator Save",
+					"name": "Role_INSTRUTOR Save",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"ROLE_USER\"\r\n}",
+							"raw": "{\r\n\t\"name\": \"ROLE_INSTRUTOR\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -449,7 +449,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"ROLE_USER\"\r\n}",
+							"raw": "{\r\n\t\"name\": \"ROLE_ADMIN\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -521,7 +521,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjg0NTM1OTk3LCJleHAiOjE2ODQ2MjIzOTd9.F_jv-o58S4egrRYyNHR_opjtrx4e0IszoIYXZbVxnf8",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjg0ODQ4MTg1LCJleHAiOjE2ODQ5MzQ1ODV9.fayr1TUaJRlAHzIFkyrf_6Q7GIfIS2C5C-WZxYjOYNk68br-6v9WkhWx8n0VWZSn",
 									"type": "string"
 								}
 							]
@@ -545,14 +545,14 @@
 					"response": []
 				},
 				{
-					"name": "Test Protected Moderator With Token",
+					"name": "Test Protected Instrutor With Token",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb2RlcmF0b3IiLCJpYXQiOjE2ODQ1MzYwMDQsImV4cCI6MTY4NDYyMjQwNH0.JS_hqxUlctHpiiG300wbWT4d9_HIIl1OfLqPRsS0vjE",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb2ljZSIsImlhdCI6MTY4NDg0ODE4NywiZXhwIjoxNjg0OTM0NTg3fQ.P__MzrpCZyOWeqfgu7l35wgzLZMrz1QNIyEmXmSZYeoInmhzmyzIGpxNzkVBNxhJ",
 									"type": "string"
 								}
 							]
@@ -560,7 +560,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/trabalho1/test/mod",
+							"raw": "http://localhost:8080/trabalho1/test/instrutor",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -569,7 +569,7 @@
 							"path": [
 								"trabalho1",
 								"test",
-								"mod"
+								"instrutor"
 							]
 						}
 					},
@@ -583,7 +583,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjg0NzYwMzYxLCJleHAiOjE2ODQ4NDY3NjF9.qT95Akw14ffo1wDTQPw1YTKAQATWljKQGiRJAtpW5R7mjqlEtd6mweNgjAy00aMt",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjg0ODUxNDE1LCJleHAiOjE2ODQ5Mzc4MTV9.oTPNilXdmpdy2YuDUU2To2DuNgsYIOG-ig6mVqyo52ZrRgX06B31v7N4ui7dUNtq",
 									"type": "string"
 								}
 							]
@@ -613,7 +613,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"administrator\",\r\n\t\"email\": \"admin@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"admin\"]\r\n}",
+							"raw": "{\r\n\t\"username\" : \"NomeAdministrator\",\r\n\t\"email\": \"admin@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"admin\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -637,13 +637,13 @@
 					"response": []
 				},
 				{
-					"name": "Signup Moderator",
+					"name": "Signup Instrutor",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"moderator\",\r\n\t\"email\": \"mod@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"moderator\"]\r\n}",
+							"raw": "{\r\n\t\"username\" : \"NomeInstrutor\",\r\n\t\"email\": \"instrutor@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"instrutor\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -673,7 +673,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"user\",\r\n\t\"email\": \"user@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"user\"]\r\n}",
+							"raw": "{\r\n\t\"username\" : \"NomeUser\",\r\n\t\"email\": \"user@mail.com\",\r\n\t\"password\": \"12345678\",\r\n\t\"role\": [\"user\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -697,73 +697,73 @@
 					"response": []
 				},
 				{
-					"name": "Signin User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"user\",\r\n\t\"password\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/trabalho1/auth/signin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"trabalho1",
-								"auth",
-								"signin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Signin Moderator",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"moderator\",\r\n\t\"password\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/trabalho1/auth/signin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"trabalho1",
-								"auth",
-								"signin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Signin Admin",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"username\" : \"administrator\",\r\n\t\"password\": \"12345678\"\r\n}",
+							"raw": "{\r\n\t\"username\" : \"NomeAdministrator\",\r\n\t\"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/trabalho1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trabalho1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin Instrutor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\" : \"NomeInstrutor\",\r\n\t\"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/trabalho1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trabalho1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\" : \"NomeUser\",\r\n\t\"password\": \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
