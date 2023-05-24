@@ -9,6 +9,8 @@ import com.grupoone.instrutor.entities.Turma;
 import com.grupoone.instrutor.exceptions.NoSuchElementException;
 import com.grupoone.instrutor.repositories.TurmaRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class TurmaService {
 
@@ -36,8 +38,23 @@ public class TurmaService {
 	}
 
 	public Turma updateTurma(Turma turma, Integer id) {
-		return turmaRepository.save(turma);
+		try {
+			Turma updateTurma = turmaRepository.getReferenceById(id);
+			updateData(updateTurma, turma);
+			return turmaRepository.save(updateTurma);
+		}
+		catch (EntityNotFoundException e) {
+			throw new NoSuchElementException("");
+		}
 	}
+
+	private void updateData(Turma updateTurma, Turma turma) {
+		updateTurma.setNomeDisciplina(turma.getNomeDisciplina());
+		updateTurma.setDiaSemana(turma.getDiaSemana());
+		updateTurma.setInstrutor(turma.getInstrutor());
+	}
+	
+	
 
 	public Boolean deleteTurma(Integer id) {
 		Turma turmaDeleted = turmaRepository.findById(id).orElse(null);
