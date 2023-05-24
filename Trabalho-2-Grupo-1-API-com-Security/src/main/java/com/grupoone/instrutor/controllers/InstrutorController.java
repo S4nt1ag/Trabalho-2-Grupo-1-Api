@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,11 +32,7 @@ public class InstrutorController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Instrutor> getInstrutorById(@PathVariable Integer id) {
-		Instrutor instrutorResponse = instrutorService.getInstrutorById(id);
-		if(null == instrutorResponse)
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		else
-			return new ResponseEntity<>(instrutorResponse, HttpStatus.OK);
+			return new ResponseEntity<>(instrutorService.getInstrutorById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping
@@ -46,11 +41,18 @@ public class InstrutorController {
 				HttpStatus.CREATED);
 	}
 	
-	@PutMapping
-	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, @PathVariable Integer id) {
 		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id),
 				HttpStatus.OK);
 	}
+
+//	@PutMapping
+//	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
+//		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id),
+//				HttpStatus.OK);
+//	}
+	
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> deleteInstrutor(@PathVariable Integer id) {
@@ -61,3 +63,4 @@ public class InstrutorController {
 			return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
 	}
 }
+	

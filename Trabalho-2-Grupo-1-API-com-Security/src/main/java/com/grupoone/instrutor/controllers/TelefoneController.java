@@ -31,12 +31,8 @@ public class TelefoneController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Telefone> getTelefoneById(@PathVariable Integer id) {
-		Telefone telefoneResponse = telefoneService.getTelefoneById(id);
-		if(null == telefoneResponse)
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		else
-			return new ResponseEntity<>(telefoneResponse, HttpStatus.OK);
+	public ResponseEntity<Telefone> getTelefoneById(@PathVariable Integer id) {	
+		return new ResponseEntity<>(telefoneService.getTelefoneById(id), HttpStatus.OK);		
 	}
 	
 	@PostMapping
