@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.grupoone.instrutor.entities.Instrutor;
 import com.grupoone.instrutor.services.InstrutorService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/instrutores")
 public class InstrutorController {
@@ -31,18 +33,18 @@ public class InstrutorController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Instrutor> getInstrutorById(@PathVariable Integer id) {
+	public ResponseEntity<Instrutor> getInstrutorById(@Valid @PathVariable Integer id) {
 			return new ResponseEntity<>(instrutorService.getInstrutorById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Instrutor> saveInstrutor(@RequestBody Instrutor instrutor) {
+	public ResponseEntity<Instrutor> saveInstrutor(@Valid @RequestBody Instrutor instrutor) {
 		return new ResponseEntity<>(instrutorService.saveInstrutor(instrutor),
 				HttpStatus.CREATED);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, @PathVariable Integer id) {
+	public ResponseEntity<Instrutor> updateInstrutor(@Valid @RequestBody Instrutor instrutor,@Valid @PathVariable Integer id) {
 		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id),
 				HttpStatus.OK);
 	}

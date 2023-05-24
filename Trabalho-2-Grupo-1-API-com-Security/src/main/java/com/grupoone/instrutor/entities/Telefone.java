@@ -13,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idTelefone")
 @Entity
@@ -24,6 +26,8 @@ public class Telefone {
 	@Column(name = "id_telefone")
 	private Integer idTelefone;
 
+	@NotBlank
+	@Pattern(regexp = "^[0-9]{8,15}")
 	@Column(name = "numero", unique = true)
 	private String numero;
 
