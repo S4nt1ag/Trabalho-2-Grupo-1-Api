@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grupoone.instrutor.entities.Turma;
+import com.grupoone.instrutor.exceptions.NoSuchElementException;
 import com.grupoone.instrutor.repositories.TurmaRepository;
 
 @Service
@@ -23,7 +24,8 @@ public class TurmaService {
 	}
 
 	public Turma getTurmaById(Integer id) {
-		return turmaRepository.findById(id).orElse(null);
+		return turmaRepository.findById(id).orElseThrow(() -> new NoSuchElementException(""));
+		
 	}
 
 	public Turma saveTurma(Turma turma) {
