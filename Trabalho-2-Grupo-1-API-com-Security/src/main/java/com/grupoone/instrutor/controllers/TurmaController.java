@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grupoone.instrutor.dto.TurmaDTO;
 import com.grupoone.instrutor.entities.Turma;
 import com.grupoone.instrutor.services.TurmaService;
 
@@ -25,12 +26,12 @@ public class TurmaController {
 	TurmaService turmaService;
 
 	@GetMapping
-	public ResponseEntity<List<Turma>> getAllTurmas() {
+	public ResponseEntity<List<TurmaDTO>> getAllTurmas() {
 		return new ResponseEntity<>(turmaService.getAllTurmas(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Turma> getTurmaById(@PathVariable Integer id) {
+	public ResponseEntity<TurmaDTO> getTurmaById(@PathVariable Integer id) {
 		return new ResponseEntity<>(turmaService.getTurmaById(id), HttpStatus.OK);
 
 	}
@@ -38,7 +39,6 @@ public class TurmaController {
 	@PostMapping
 	public ResponseEntity<Turma> saveTurma(@RequestBody Turma turma) {
 		return new ResponseEntity<>(turmaService.saveTurma(turma), HttpStatus.CREATED);
-
 	}
 
 	@PutMapping(value = "/{id}")
@@ -50,8 +50,8 @@ public class TurmaController {
 //	public ResponseEntity<Turma> updateTurma(@RequestBody Turma turma, Integer id) {
 //		return new ResponseEntity<>(turmaService.updateTurma(turma, id),
 //				HttpStatus.OK);
-
 //	}
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> deleteTurma(@PathVariable Integer id) {
 		Boolean resp = turmaService.deleteTurma(id);

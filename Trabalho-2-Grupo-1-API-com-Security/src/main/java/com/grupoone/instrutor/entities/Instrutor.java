@@ -28,7 +28,7 @@ public class Instrutor {
 	private Integer idInstrutor;
 	
 	@Column(name = "rg", unique = true)
-	private Integer rg;
+	private String rg;
 	
 	@Column(name = "nome")
 	private String nome;
@@ -47,11 +47,11 @@ public class Instrutor {
 		this.idInstrutor = idInstrutor;
 	}
 
-	public Integer getRg() {
+	public String getRg() {
 		return rg;
 	}
 
-	public void setRg(Integer rg) {
+	public void setRg(String rg) {
 		this.rg = rg;
 	}
 
