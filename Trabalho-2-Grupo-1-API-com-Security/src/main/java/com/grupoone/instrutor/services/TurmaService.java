@@ -3,19 +3,23 @@ package com.grupoone.instrutor.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.grupoone.instrutor.entities.Turma;
+import com.grupoone.instrutor.exceptions.IdNotFoundException;
 import com.grupoone.instrutor.exceptions.NoSuchElementException;
+import com.grupoone.instrutor.repositories.InstrutorRepository;
 import com.grupoone.instrutor.repositories.TurmaRepository;
-
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TurmaService {
 
 	@Autowired
 	TurmaRepository turmaRepository;
+	
+	@Autowired
+	InstrutorRepository instrutorRepository;
 	
 	@Autowired
 	EmailService emailService;
@@ -39,13 +43,16 @@ public class TurmaService {
 
 	public Turma updateTurma(Turma turma, Integer id) {
 		try {
-			Turma updateTurma = turmaRepository.getReferenceById(id);
-			updateData(updateTurma, turma);
-			return turmaRepository.save(updateTurma);
-		}
-		catch (EntityNotFoundException e) {
-			throw new NoSuchElementException("");
-		}
+	        if (instrutorRepository.existsById(id)) {
+	            Turma updateTurma = turmaRepository.getReferenceById(id);
+	            updateData(updateTurma, turma);
+	            return turmaRepository.save(updateTurma);
+	        } else {
+	            throw new NoSuchElementException("");
+	        }
+	    } catch (DataAccessException e) {
+	    	    throw new IdNotFoundException("Id not found: " + id);
+	    }
 	}
 
 	private void updateData(Turma updateTurma, Turma turma) {

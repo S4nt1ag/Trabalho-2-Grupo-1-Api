@@ -6,4 +6,5 @@ import com.grupoone.instrutor.entities.Turma;
 
 public interface TurmaRepository extends JpaRepository <Turma, Integer>{
 
+	boolean existsById(Integer id);
 }
