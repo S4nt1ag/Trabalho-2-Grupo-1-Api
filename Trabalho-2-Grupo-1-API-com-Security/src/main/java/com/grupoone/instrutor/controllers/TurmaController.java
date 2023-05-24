@@ -31,11 +31,8 @@ public class TurmaController {
 	}
 	@GetMapping ("/{id}")
 	public ResponseEntity<Turma> getTurmaById(@PathVariable Integer id) {
-		Turma turmaResponse = turmaService.getTurmaById(id);
-		if(null == turmaResponse)
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		else
-			return new ResponseEntity<>(turmaResponse, HttpStatus.OK);
+		return new ResponseEntity<>(turmaService.getTurmaById(id), HttpStatus.OK);
+		
 	}
 	@PostMapping
 	public ResponseEntity<Turma> saveTurma(@RequestBody Turma turma) {

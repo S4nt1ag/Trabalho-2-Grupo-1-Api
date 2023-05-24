@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grupoone.instrutor.entities.Telefone;
+import com.grupoone.instrutor.exceptions.NoSuchElementException;
 import com.grupoone.instrutor.repositories.TelefoneRepository;
 
 @Service
@@ -22,7 +23,7 @@ public class TelefoneService {
 	}
 
 	public Telefone getTelefoneById(Integer id) {
-		return telefoneRepository.findById(id).orElse(null);
+		return telefoneRepository.findById(id).orElseThrow(() -> new NoSuchElementException(""));
 	}
 
 	public Telefone saveTelefone(Telefone telefone) {

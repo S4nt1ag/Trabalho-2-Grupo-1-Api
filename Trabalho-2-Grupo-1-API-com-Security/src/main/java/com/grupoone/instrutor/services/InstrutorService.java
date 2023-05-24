@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grupoone.instrutor.entities.Instrutor;
+import com.grupoone.instrutor.exceptions.NoSuchElementException;
 import com.grupoone.instrutor.repositories.InstrutorRepository;
 
 @Service
@@ -21,8 +22,8 @@ public class InstrutorService {
 		return instrutorRepository.findAll();
 	}
 
-	public Instrutor getInstrutorById(Integer Id) {
-		return instrutorRepository.findById(Id).orElse(null);
+	public Instrutor getInstrutorById(Integer id) {
+		return instrutorRepository.findById(id).orElseThrow(() -> new NoSuchElementException(""));
 	}
 
 	public Instrutor saveInstrutor(Instrutor instrutor) {
