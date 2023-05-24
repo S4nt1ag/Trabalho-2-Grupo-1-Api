@@ -46,7 +46,7 @@ public class WebSecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/instrutores/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pdoe ver instrutores
                     .requestMatchers(HttpMethod.GET, "/telefones/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pode ver telefones
                     .requestMatchers(HttpMethod.GET, "/turmas/**").hasAnyRole("USER", "INSTRUTOR", "ADMIN") //user só pode ver turmas
-                    .requestMatchers("/telefones/**", "/instrutores/**", "/turmas/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
+                    .requestMatchers("/telefones/**", "/instrutores/**", "/turmas/**","/usuarios/**").hasRole("ADMIN") // autoriza o acesso a rotas por perfil
                     .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
 		;		
 		
