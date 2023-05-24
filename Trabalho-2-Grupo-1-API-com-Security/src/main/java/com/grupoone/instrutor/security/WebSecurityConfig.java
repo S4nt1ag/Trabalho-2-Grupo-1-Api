@@ -42,7 +42,7 @@ public class WebSecurityConfig {
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/roles/**", "/test/all","/swagger-ui/**").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers("/auth/**", "/roles/**", "/test/all","/swagger-ui/**", "/v3/api-docs/**").permitAll() //define as rotas publicas/abertas
                     .requestMatchers(HttpMethod.GET, "/instrutores/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pdoe ver instrutores
                     .requestMatchers(HttpMethod.GET, "/telefones/**").hasAnyRole("INSTRUTOR", "ADMIN") //instrutor só pode ver telefones
                     .requestMatchers(HttpMethod.GET, "/turmas/**").hasAnyRole("USER", "INSTRUTOR", "ADMIN") //user só pode ver turmas

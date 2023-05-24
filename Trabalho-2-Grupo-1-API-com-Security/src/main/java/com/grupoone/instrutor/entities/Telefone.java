@@ -25,7 +25,7 @@ public class Telefone {
 	private Integer idTelefone;
 
 	@Column(name = "numero", unique = true)
-	private Integer numero;
+	private String numero;
 
 	@OneToOne // (1,1)
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id_instrutor") // FK--> Instrutor.
@@ -39,11 +39,11 @@ public class Telefone {
 		this.idTelefone = idTelefone;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
