@@ -86,4 +86,9 @@ public class Turma {
 		return Objects.equals(idTurma, other.idTurma);
 	}
 
+	@Override
+	public String toString() {
+		return "Turma [idTurma=" + idTurma + ", nomeDisciplina=" + nomeDisciplina + ", diaSemana=" + diaSemana
+				+ ", idInstrutor=" + instrutor.getIdInstrutor() + "]";
+	}
 }

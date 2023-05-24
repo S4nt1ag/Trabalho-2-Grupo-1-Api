@@ -6,4 +6,5 @@ import com.grupoone.instrutor.entities.Instrutor;
 
 public interface InstrutorRepository extends JpaRepository <Instrutor, Integer> {
 
+	boolean existsById(Integer id);
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupoone.instrutor.entities.Instrutor;
 import com.grupoone.instrutor.services.InstrutorService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/instrutores")
@@ -32,21 +33,28 @@ public class InstrutorController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Instrutor> getInstrutorById(@PathVariable Integer id) {
+	public ResponseEntity<Instrutor> getInstrutorById(@Valid @PathVariable Integer id) {
 			return new ResponseEntity<>(instrutorService.getInstrutorById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Instrutor> saveInstrutor(@RequestBody Instrutor instrutor) {
+	public ResponseEntity<Instrutor> saveInstrutor(@Valid @RequestBody Instrutor instrutor) {
 		return new ResponseEntity<>(instrutorService.saveInstrutor(instrutor),
 				HttpStatus.CREATED);
 	}
 	
-	@PutMapping
-	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Instrutor> updateInstrutor(@Valid @RequestBody Instrutor instrutor,@Valid @PathVariable Integer id) {
 		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id),
 				HttpStatus.OK);
 	}
+
+//	@PutMapping
+//	public ResponseEntity<Instrutor> updateInstrutor(@RequestBody Instrutor instrutor, Integer id) {
+//		return new ResponseEntity<>(instrutorService.updateInstrutor(instrutor, id),
+//				HttpStatus.OK);
+//	}
+	
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Boolean> deleteInstrutor(@PathVariable Integer id) {
@@ -57,3 +65,4 @@ public class InstrutorController {
 			return new ResponseEntity<>(resp, HttpStatus.NOT_MODIFIED);
 	}
 }
+	

@@ -13,6 +13,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idTelefone")
 @Entity
@@ -24,8 +26,10 @@ public class Telefone {
 	@Column(name = "id_telefone")
 	private Integer idTelefone;
 
+	@NotBlank
+	@Pattern(regexp = "^[0-9]{8,15}")
 	@Column(name = "numero", unique = true)
-	private Integer numero;
+	private String numero;
 
 	@OneToOne // (1,1)
 	@JoinColumn(name = "id_instrutor", referencedColumnName = "id_instrutor") // FK--> Instrutor.
@@ -39,11 +43,11 @@ public class Telefone {
 		this.idTelefone = idTelefone;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
