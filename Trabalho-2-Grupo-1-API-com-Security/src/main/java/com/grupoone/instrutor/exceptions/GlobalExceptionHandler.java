@@ -28,7 +28,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler  {
 	    }
 	   
 	   @ExceptionHandler(IdNotFoundException.class)
-	    ProblemDetail handleNoSuchElementException(IdNotFoundException e) {
+	    ProblemDetail handleIdNotFoundException(IdNotFoundException e) {
 	    ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
 
 	    problemDetail.setTitle("O id do Instrutor não existe no banco de dados");
