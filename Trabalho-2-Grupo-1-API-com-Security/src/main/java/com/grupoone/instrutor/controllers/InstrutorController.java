@@ -39,8 +39,10 @@ public class InstrutorController {
 	
 	@PostMapping
 	public ResponseEntity<Instrutor> saveInstrutor(@Valid @RequestBody Instrutor instrutor) {
+		
 		return new ResponseEntity<>(instrutorService.saveInstrutor(instrutor),
 				HttpStatus.CREATED);
+		
 	}
 	
 	@PutMapping(value = "/{id}")

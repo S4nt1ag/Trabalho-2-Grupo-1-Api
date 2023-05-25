@@ -40,7 +40,7 @@ public class InstrutorService {
 
 	public Instrutor updateInstrutor(Instrutor instrutor, Integer id) {
 		try {
-			Instrutor updateInstrutor = instrutorRepository.getReferenceById(id);
+			Instrutor updateInstrutor = instrutorRepository.findById(id).get();
 			updateData(updateInstrutor, instrutor);
 			return instrutorRepository.save(updateInstrutor);
 		}
